@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <cs50.h>
+//#include <cs50.h>
 int main(void)
 {
     int n=0;
@@ -12,7 +12,8 @@ int main(void)
     while ((row < 0) || (row > 23) )
     {
         printf("Enter hight:");
-        row = GetInt();
+        //row = GetInt();
+	scanf("%d", &row);
     }
     // the construction of the pyramid of n rows
     for (n = 1; n <= row; n++)

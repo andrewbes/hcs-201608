@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <cs50.h>
+//#include <cs50.h>
 int main(void)
 {
     float change= -1;
@@ -12,7 +12,8 @@ int main(void)
     while (change < 0)
     {
         printf("Enter how much change is owed:");    
-        change = GetFloat();
+        //change = GetFloat();
+	scanf("%f", &change);
     }
     // define the number of coins 25 in integer parts of change
     int_change = (int) change;
