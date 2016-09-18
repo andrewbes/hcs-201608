@@ -29,5 +29,5 @@ int main(void)
        if ((full_name[i - 1] == ' ') && (full_name[i] != ' '))
        printf("%c", upcase(full_name[i]));
     printf("\n");
-    free full_name;
+    free(full_name);
 }

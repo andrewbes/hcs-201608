@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 // function converts uppercase lowercase
 char upcase(char ch)
@@ -25,9 +26,9 @@ int main(void)
         printf("%c", upcase(full_name[0]));
     // processing other symbols of string
     for (int i = 1; i < len; i++)
-    //printf ("%c", full_name[i]);   
+    //printf ("%c", full_name[i]);
        if ((full_name[i - 1] == ' ') && (full_name[i] != ' '))
        printf("%c", upcase(full_name[i]));
     printf("\n");
-    free full_name;
+    free(full_name);
 }
