@@ -16,24 +16,36 @@ int main(int argc, char* argv[])
     // data input unit
         while (len == 0)    // can not enter blank string
         {
-            fgets(orig_phrase, 100, stdin); // Enter original phrase");
+    // Enter original phrase");    
+            fgets(orig_phrase, 100, stdin);
             len = strlen(orig_phrase);
         }
         for (int i = 0; i < len; i++)
-           if ((orig_phrase[i] > 96) && (orig_phrase[i] <= 123))
+        {
+            if ((orig_phrase[i] > 96) && (orig_phrase[i] <= 123))
                 if (orig_phrase[i] + key < 123)
+                {
                     printf("%c", (orig_phrase[i] + key));
+                }
                 else
+                {
                     printf("%c", ((orig_phrase[i] - 96 + key) % 26) + 96);
-                
+                }
             else  
             if ((orig_phrase[i] > 64) && (orig_phrase[i] <= 91))
                 if (orig_phrase[i] + key < 91)
+                {
                     printf("%c", (orig_phrase[i] + key));
+                }
                 else
+                {
                     printf("%c", ((orig_phrase[i] - 64 + key) % 26) + 64);
+                }
             else
+            {
                 printf("%c", orig_phrase[i]);
+            }
+        }
         printf("\n");
         free(orig_phrase);
         return 0;

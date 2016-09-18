@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 // function converts uppercase lowercase
 char upcase(char ch)
