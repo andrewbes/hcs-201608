@@ -23,17 +23,21 @@ int main(int argc, char* argv[])
                 mk[i] += -97;
          }
     }
-    int len = 0;
+            
+        int len = 0;
     // data input unit
-        while (len == 0)    // can not enter blank stringt
+        while (len == 0)
+    // can not enter blank stringt
         {
-            fgets(orig_phrase, 100, stdin);// Enter original phrase"); 
+    // Enter original phrase");    
+            fgets(orig_phrase, 100, stdin);
             len = strlen(orig_phrase);
         }
         int j=0;
         for ( int i = 0; i < len; i++)
         {
             int k = mk[j%lenmk];;
+            //char orig_phrase[i] = orig_phrase[i];
             if ((orig_phrase[i] > 96) && (orig_phrase[i] <= 123))
                 if (orig_phrase[i] + k < 123)
                 {
@@ -58,8 +62,9 @@ int main(int argc, char* argv[])
                     j++;
                 }
             else
+            {
                 printf("%c", orig_phrase[i]);
-            
+            }
         }
         printf("\n");
         return 0;
