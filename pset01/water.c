@@ -1,17 +1,30 @@
 #include <stdio.h>
-//#include <cs50.h>
+#include <stdlib.h>
+#include <string.h>
+int getminuts(void);
 int main(void)
-{
-    int shower = 0;
-    int bottels = 0;
-
-    // data input unit
-        printf("Enter how much time you need for showering (in minuts):");
-        scanf("%i", &shower);
-
+{   
+    
+    int shower = getminuts();
     // calculate the number of bottels of water
-        bottels = shower * 12;
-
+    int bottels = shower * 12;
     // displays the number of bottels of water
-    printf("For showering you need %i bottels of water.\n", bottels);
+    printf("bottels: %i\n", bottels);
+}
+
+int getminuts(void)
+{
+    char str [100];
+    int len = 0;
+        while (len <= 1)    // can not enter blank string
+    {   
+        printf("minuts:");
+        fgets(str, 100, stdin);
+        len = strlen(str);
+        str[len-1] = 0;
+        for (i = 0; i < len-1; i++)
+            if ((str[i] < 48) || (str[i] > 57))
+                len = 0;
+    } 
+    return atoi(str);
 }
