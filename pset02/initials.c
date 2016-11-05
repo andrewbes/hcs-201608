@@ -5,7 +5,7 @@
 char upcase(char ch)
 {
     if ((ch > 96) && (ch < 123))
-        ch += -32;
+        ch = ch -32;
     return ch;
 }
 int main(void)
@@ -15,7 +15,7 @@ int main(void)
     // data input unit
     while (len == 0)    // can not enter blank string
     {
-        printf("Enter You Full Name:");
+        //printf("Enter You Full Name:");
         fgets(full_name, 100, stdin);
         len = strlen(full_name);
         full_name[len] = 0;
