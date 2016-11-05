@@ -22,7 +22,7 @@ int getminuts(void)
         fgets(str, 100, stdin);
         len = strlen(str);
         str[len-1] = 0;
-        for (i = 0; i < len-1; i++)
+        for (int i = 0; i < len-1; i++)
             if ((str[i] < 48) || (str[i] > 57))
                 len = 0;
     } 
