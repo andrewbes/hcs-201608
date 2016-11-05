@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <cs50.h>
 #include <string.h>
-int main(int argc, char* argv[])
+int main(int argc, string argv[])
 {
-    char* orig_phrase = malloc(sizeof(char) * 100);
+    string orig_phrase = "";
     int lenmk = 0;
     char* mk;
     if (argc != 2)
@@ -18,48 +18,65 @@ int main(int argc, char* argv[])
         for (int i = 0; i<lenmk; i++)
         {
             if ((mk[i] > 64) && (mk[i] <= 91))
+            {
                 mk[i] += -65;
+            }
+            else
             if ((mk[i] > 96) && (mk[i] <= 123))
+            {
                 mk[i] += -97;
-         }
+            }
+            else
+            {
+               printf("Enter the wrong encryption key");
+               return 1;
+            }
+        }
     }
-    int len = 0;
+            
+        int len = 0;
     // data input unit
-        while (len == 0)    // can not enter blank stringt
+        while (len == 0)
+    // can not enter blank stringt
         {
-            fgets(orig_phrase, 100, stdin);// Enter original phrase"); 
+    // Enter original phrase");  
+            printf("plaintext: ");
+            orig_phrase = GetString();
             len = strlen(orig_phrase);
         }
         int j=0;
+        printf("ciphertext: ");
         for ( int i = 0; i < len; i++)
         {
             int k = mk[j%lenmk];;
-            if ((orig_phrase[i] > 96) && (orig_phrase[i] <= 123))
-                if (orig_phrase[i] + k < 123)
+            char ch = orig_phrase[i];
+            if ((ch > 96) && (ch <= 123))
+                if (ch + k < 123)
                 {
-                    printf("%c", (orig_phrase[i] + k));
+                    printf("%c", (ch + k));
                     j++;
                 }
                 else
                 {
-                    printf("%c", ((orig_phrase[i] - 96 + k) % 26) + 96);
+                    printf("%c", ((ch - 96 + k) % 26) + 96);
                     j++;
                 }
             else  
-            if ((orig_phrase[i] > 64) && (orig_phrase[i] <= 91))
-                if (orig_phrase[i] + k < 91)
+            if ((ch > 64) && (ch <= 91))
+                if (ch + k < 91)
                 {
-                    printf("%c", (orig_phrase[i] + k));
+                    printf("%c", (ch + k));
                     j++;
                 }
                 else
                 {
-                    printf("%c", ((orig_phrase[i] - 64 + k) % 26) + 64);
+                    printf("%c", ((ch - 64 + k) % 26) + 64);
                     j++;
                 }
             else
-                printf("%c", orig_phrase[i]);
-            
+            {
+                printf("%c", ch);
+            }
         }
         printf("\n");
         return 0;
