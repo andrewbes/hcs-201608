@@ -1,5 +1,8 @@
 #include <stdio.h>
 //#include <cs50.h>
+#include <stdlib.h>
+#include <string.h>
+float GetChange(void);
 int main(void)
 {
     float change= -1;
@@ -9,12 +12,9 @@ int main(void)
     int fr_change1=0;
     int fr_change2=0;
     // data input unit
-    while (change < 0)
-    {
-        printf("Enter how much change is owed:");    
-        //change = GetFloat();
-	scanf("%f", &change);
-    }
+     
+     change = GetChange();
+
     // define the number of coins 25 in integer parts of change
     int_change = (int) change;
     coins = int_change * 4;
@@ -52,4 +52,20 @@ int main(void)
     }
     
     printf("%d\n", coins);
+}
+float GetChange(void)
+{
+    char str [100];
+    int len = 0;
+        while (len <= 1)    // can not enter blank string
+    {   
+        printf("Enter how much change is owed:");
+        fgets(str, 100, stdin);
+        len = strlen(str);
+        str[len-1] = 0;
+        for (int i = 0; i < len-1; i++)
+            if (((str[i] < 48) || (str[i] > 57)) && (str[i] != '.'))
+                len = 0;
+    } 
+    return atof(str);
 }
